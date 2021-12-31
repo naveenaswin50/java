@@ -10,13 +10,13 @@ public class casper {
             str[i]=sc.next();
         }for(int i=0;i<a-1;i++){
             if(str[i].equals("cookie")&&(str[i+1].equals("cookie"))){
-                System.out.print("NO");
+                System.out.print("No");
                 flag=false;
                 break;
             }
         }
         if(flag){
-            System.out.print("YES");
+            System.out.print("Yes");
         }
 
        sc.close(); 
