@@ -1,10 +1,9 @@
-package examly.function;
+// You are using Java
 
 import java.util.Scanner;
-
-public class Addision {
-    int calculate(int a){
-        int sum=0;
+class  AdditionChallenge  {
+    long findSum(int a){
+        long sum=0;
         for(int i=0;i<=a;i++){
             sum+=Math.pow(2,i);
         }
@@ -13,8 +12,8 @@ public class Addision {
     public static void main(String[]as){
         Scanner sc=new Scanner(System.in);
         int a=sc.nextInt();
-        Addision z=new Addision();
-        System.out.print(z.calculate(a));
+        AdditionChallenge z=new AdditionChallenge();
+        System.out.print(z.findSum(a));
         sc.close();
     }
 }
