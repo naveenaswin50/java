@@ -1,54 +1,61 @@
-package examly.OOPS.OOPSA.OOPS1;
 import java.util.*;
-public class singlefile3 {
-    String name;
-    String m_no;
-    String uname;
-    String pwd;
-    String av="public void displayAll(User[] userArray)";
-    String bb="public Boolean deleteUser(User[] userArrray,String name)";
-    public singlefile3(String name,String m_no,String uname,String pwd){
-        this.name=name;
-        this.m_no=m_no;
-        this.uname=uname;
-        this.pwd=pwd;
+
+class User {
+    String str1="public void displayAll(User[] userArray)";
+    String str2="public Boolean deleteUser(User[] userArrray,String name)";
+    private static Scanner sc = new Scanner(System.in);
+    String n;
+    String mn;
+    String un;
+    String pw;
+
+    User(String n, String mn, String un, String pw) {
+        this.n = n;
+        this.mn = mn;
+        this.un = un;
+
+        this.pw = pw;
     }
-    public singlefile3(){}
-    public void display(singlefile3 arr[],int n){
-        for(int i=0;i<n;i++){
-            System.out.print(arr[i].name+" ");
-            System.out.print(arr[i].m_no+" ");
-            System.out.print(arr[i].uname+" ");
-            System.out.println(arr[i].pwd);
+
+    User() {
+    }
+
+    public void displayAll(User[] userArray) {
+        for (int i = 0; i < userArray.length; i++) {
+            System.out.print(userArray[i].n + " ");
+            System.out.print(userArray[i].mn + " ");
+            System.out.print(userArray[i].un + " ");
+            System.out.print(userArray[i].pw + "\n");
         }
     }
-    public boolean compair(singlefile3 arr[],String str,int n){
-        for(int i=0;i<n;i++){
-            if(arr[i].name.equals(str)){
+
+    public Boolean deleteUser(User[] userArray, String name) {
+        for (User i : userArray) {
+            if (i.n.equalsIgnoreCase(name)) {
                 return true;
             }
         }
         return false;
     }
+
     public static void main(String[] args) {
-        Scanner sc=new Scanner (System.in);
-        int n=sc.nextInt();
-        singlefile3 arr[]=new singlefile3[n];
-        for(int i=0;i<n;i++){
-            arr[i]=new singlefile3();
-            arr[i].name=sc.next();
-            arr[i].m_no=sc.next();
-            arr[i].uname=sc.next();
-            arr[i].pwd=sc.next();
+        sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        User[] arr = new User[n];
+        for (int i = 0; i < n; i++) {
+            String name = sc.next();
+            String mn = sc.next();
+            String un = sc.next();
+            String pw = sc.next();
+            arr[i] = new User(name, mn, un, pw);
         }
-        sc.close();
-        String str=sc.next();
-        singlefile3 a=new singlefile3();
-        a.display(arr,n);
-        if(a.compair(arr,str,n)){
+        String del = sc.next();
+        User u = new User();
+        u.displayAll(arr);
+        if (u.deleteUser(arr, del)) {
             System.out.println("User deleted successfully");
-        }else{
-            System.out.println("No user found with the given name");            
+        } else {
+            System.out.println("No user found with the given name");
         }
-    }       
+    }
 }
